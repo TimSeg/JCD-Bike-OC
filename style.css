@@ -1,0 +1,25 @@
+body{
+    background-color: white;
+    font-size: 62.5%;
+    margin: 0;
+    text-align: center;
+}
+
+
+/*mobile screen and general properties*/
+
+
+
+
+
+
+/*pad screen*/
+
+@media screen and (min-width: 768px){ }
+
+
+
+
+/*desktop screen*/
+
+@media screen and (min-width: 968px){  }
