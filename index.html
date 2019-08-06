@@ -2,83 +2,76 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book-a-Bike</title>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+
+<!--always displayed header-->
 <header>
-    <h1>Book-a-Bike</h1>
-    <p>Le vélo en toute liberté !</p>
+    <nav>
+    	
+        <h1>Book-a-Bike</h1>
+        <p>Le vélo en toute liberté !</p>
+        
+
+        <div id="menuToggle">
+        	<input type="checkbox">
+            <i class="fa fa-bars fa-2x"></i>
+
+            <ul class="main-navigation">
+                <li>
+                    <a href="#">Accueil</a>
+                </li>
+                <li>
+                    <a href="#reservation">Réserver</a>
+                </li>
+                <li>
+                    <a href="#contact">Suivez-nous !</a>
+                </li>
+            </ul> 
+        </div>
+    </nav>
 </header>
 
 
-<div class="slider">
 
-    <div id="jssor_1" >
-        <!-- Loading Screen -->
-        <div data-u="loading" class="jssorl-009-spin" >
-            <img src="images/spin.svg" />
-        </div>
-        <div class="slider-images" data-u="slides" >
-            <div>
-                <img data-u="image" src="images/011.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="images/012.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="images/013.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="images/014.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="images/015.jpg" />
-            </div>
-            <div>
-                <img data-u="image" src="images/016.jpg" />
-            </div>
-        </div>
+<main>
+
+
+	<article class="slider">
+		<!--manual scroll + auto scroll-->
+	</article>
 
 
 
 
-        <!-- Bullet Navigator -->
-        <div data-u="navigator" class="jssorb053" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
-            <div data-u="prototype" class="i" style="width:16px;height:16px;">
-                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                    <path class="b" d="M11400,13800H4600c-1320,0-2400-1080-2400-2400V4600c0-1320,1080-2400,2400-2400h6800 c1320,0,2400,1080,2400,2400v6800C13800,12720,12720,13800,11400,13800z"></path>
-                </svg>
-            </div>
-        </div>
-        <!-- Arrow Navigator -->
-        <div data-u="arrowleft" class="jssora093" style="width:50px;height:50px;top:0px;left:30px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
-            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                <circle class="c" cx="8000" cy="8000" r="5920"></circle>
-                <polyline class="a" points="7777.8,6080 5857.8,8000 7777.8,9920 "></polyline>
-                <line class="a" x1="10142.2" y1="8000" x2="5857.8" y2="8000"></line>
-            </svg>
-        </div>
-        <div data-u="arrowright" class="jssora093" style="width:50px;height:50px;top:0px;right:30px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
-            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                <circle class="c" cx="8000" cy="8000" r="5920"></circle>
-                <polyline class="a" points="8222.2,6080 10142.2,8000 8222.2,9920 "></polyline>
-                <line class="a" x1="5857.8" y1="8000" x2="10142.2" y2="8000"></line>
-            </svg>
-        </div>
-    </div>
+	<article id="reservation">
+		
+		<div id="map">
+			<!--map-->
+		</div>
+
+		<form>
+			<!--form-->
+		</form>	
+
+	</article>
+
+	<article class="confirmation">
+		<!--booked bike + timer until delete-->
+	</article>
+
+	<footer id="contact">
+		<!--social networks links + user policy-->	
+	</footer>
 
 
-</div>
-
-
-
-
-
-
+</main>
 </body>
 </html>
