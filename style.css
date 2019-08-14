@@ -85,6 +85,12 @@ nav{
 }
 
 
+#slideshow{
+	width: 100%;
+  	position: relative;
+  	margin: auto;
+}
+
 .fa-chevron-left{
     display: block;
     align-items: center;
@@ -119,11 +125,6 @@ nav{
 
 
 
-#slideshow{
-	max-width: 80%;
-  	position: relative;
-  	margin: auto;
-}
 
 /*hide slides before click or auto-defil*/
 .slide{
