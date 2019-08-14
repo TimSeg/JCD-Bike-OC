@@ -43,22 +43,36 @@
 <main>
 
 		<!--manual scroll + auto scroll-->
-	<article class="slideshow">
+	<article id="slideshow">
 
-		<figure class="slide">
+		
+
+		<figure class="slide fade">
 			<img src="images/map-pic.jpg" alt="repérage">
 			<figcaption class="slide-text">I. Choississez une station proche de vous.</figcaption>
 		</figure>
 
-		<figure class="slide">
+		<figure class="slide fade">
 			<img src="images/form-icon.png" alt="votre identité">
 			<figcaption class="slide-text">II. Entrez vos informations personnelles puis signez.</figcaption> 
 		</figure>
 
-		<figure class="slide">
+		<figure class="slide fade">
 			<img src="images/clock.png" alt="réservation limitée">
 			<figcaption class="slide-text">III. Une fois validée, vous disposez de 20 minutes pour récupérer le vélo réservé.</figcaption>
 		</figure>
+
+		<span onclick="plusSlides(-1)"><i class="fas fa-chevron-left"></i></span>
+        <span onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></span>
+
+<!-- monitoring dots -->
+		<div class="dots">
+  			<span class="dot" onclick="currentSlide(1)"></span> 
+  			<span class="dot" onclick="currentSlide(2)"></span> 
+  			<span class="dot" onclick="currentSlide(3)"></span> 
+		</div>
+
+        <button type="button" id="stop-defil">Arrêt du défilement</button>
 
 	</article>
 
@@ -92,6 +106,6 @@
 <!--SCRIPTS-->
 
 <script src="js/script.js"></script>
-
+<script src="js/Slider.js"></script>
 </body>
 </html>

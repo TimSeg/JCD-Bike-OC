@@ -5,6 +5,10 @@
 // Check DOM content loaded
 
 // Set slider
+	var slideshow = new Slider();
+    slideshow.next();
+
+
 
 // Set map
 
