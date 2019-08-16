@@ -1,49 +1,36 @@
 // Set slider
 
-var slideIndex = 1;
-showSlides(slideIndex);
 
 
-// Next and previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+class Slideshow {
+    constructor() {
+        this.slides = document.getElementsByClassName("slide");
+        this.stop = document.getElementById("stop-defil");
+        this.currentSlide = 1;
+        this.prevSlide = document.getElementById("prev-slide");
+        this.nextSlide = document.getElementById("next-slide");
+        this.slideshowAuto = setInterval(this.plusSlides.bind(this), 5000);
+        this.stateStop = 0;
 }
 
-// image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+initSlideshow() {
+    this.showSlides();
+    document.addEventListener("keydown", this.keyboardControl.bind(this));
+    this.prevSlide.addEventListener("click", this.prevSlides.bind(this));
+    this.nextSlide.addEventListener("click", this.plusSlides.bind(this));
+    this.stop.addEventListener("click", this.stopDefil.bind(this));
 }
 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; 
+showSlides(n) {
+    if (n > this.slides.length) {
+        this.currentSlide = 1;
     }
-    for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+    if (n < 1) {
+        this.currentSlide = this.slides.length;
     }
-    slides[slideIndex-1].style.display = "block"; 
-    dots[slideIndex-1].className += " active";
-}
-
-
-
-//Automation
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slide");
-    for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; 
-  }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1} 
-     slides[slideIndex-1].style.display = "block"; 
-    // Change image every 5 seconds
-    setTimeout(showSlides, 5000); 
+    for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].style.display = "none";
+    }
+    this.slides[this.currentSlide - 1].style.display = "block";
 }
 
