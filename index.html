@@ -43,7 +43,7 @@
 <main>
 
 		<!--manual scroll + auto scroll-->
-	<article id="slideshow">
+	<article class="slider">
 
 		
 
@@ -62,16 +62,16 @@
 			<figcaption class="slide-text">III. Une fois validée, vous disposez de 20 minutes pour récupérer le vélo réservé.</figcaption>
 		</figure>
 
-		<span id="prev-slide"><i class="fas fa-chevron-left"></i></span>
-        <span id="next-slide"><i class="fas fa-chevron-right"></i></span>
+		<span onclick="plusSlides(-1)" id="prev-arrow"><i class="fas fa-chevron-left"></i></span>
+        <span onclick="plusSlides(1)" id="next-arrow"><i class="fas fa-chevron-right"></i></span>
 
-<!-- monitoring dots
+ <!--monitoring dots-->
 		<div class="dots">
   			<span class="dot" onclick="currentSlide(1)"></span> 
   			<span class="dot" onclick="currentSlide(2)"></span> 
   			<span class="dot" onclick="currentSlide(3)"></span> 
 		</div>
--->
+
         <button type="button" id="stop-defil">Arrêt du défilement</button>
 
 	</article>

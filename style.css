@@ -126,11 +126,11 @@ nav{
 
 
 
-/*hide slides before click or auto-defil*/
+/*hide slides before click or auto-defil
 .slide{
 	display: none;
 }
-
+*/
 
 .slide-text{
 	color: #f2f2f2;
