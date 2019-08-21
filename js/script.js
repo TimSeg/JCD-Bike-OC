@@ -6,7 +6,7 @@
 
 // Set slider
 	var slider = new Slider();
-    Slider.begin();
+    slider.begin();
 
 
 

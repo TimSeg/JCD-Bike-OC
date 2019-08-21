@@ -4,9 +4,9 @@
 
 
 
-class Slider {
-    constructor(){
-        this.name = "Slideshow"
+function Slider (){
+    constructor(slideshow) {
+        this.name = "slideshow";
         this.slides = document.getElementsByClassName("slide");
         this.dots = document.getElementsByClassName("dot");
         this.next = document.getElementById("next-arrow");
@@ -14,13 +14,15 @@ class Slider {
         this.stop = document.getElementById("stop-defil");
         this.slideIndex = 1;
         this.stateStop = 0;
+        this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
     }
+
 
     initSlider() {
         this.showSlides();
         this.document.addEventListener("keydown", this.keyboardControl.bind(this));
-        //this.next.addEventListener("click", this.nextSlide.bind(this));
-        //this.previous.addEventListener("click", this.previousSlide.bind(this));
+        this.next.addEventListener("click", this.nextSlide.bind(this));
+        this.previous.addEventListener("click", this.previousSlide.bind(this));
         this.stop.addEventListener("click", this.stopDefilement.bind(this));
     }
    
@@ -41,11 +43,19 @@ class Slider {
     }
 
 
-    plusSlides(n) {
-        this.showSlides(slideIndex += n);
-}
+
+    nextSlide() {
+        this.showSlides(this.slideIndex += 1);
+    }
+
+    previousSlide() {
+        this.showSlides(this.slideIndex -= 1);
+    }
 
 }
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////
 
