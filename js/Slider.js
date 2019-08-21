@@ -3,29 +3,8 @@
 "use strict";
 
 
-class Slideshow {
-    constructor() {
-        this.slides = document.getElementsByClassName("slide");
-        this.next = document.getElementById("next-arrow");
-        this.previous = document.getElementById("prev-arrow");
-        this.stop = document.getElementById("stop-defil");
-        this.slideIndex = 1;
-        this.autoDefil = setInterval(this.plusSlides.bind(this), 5000);
-        this.stopDefil = 0;
-    }
 
-    initSlideshow() {
-        this.showSlides();
-        document.addEventListener("keydown", this.keyboardControl.bind(this));
-        this.next.addEventListener("click", this.nextSlide.bind(this));
-        this.previous.addEventListener("click", this.previousSlide.bind(this));
-        this.stop.addEventListener("click", this.stopDefilement.bind(this));
-    }
-
-
-
-/*
-class Slideshow {
+class Slider {
     constructor(){
         this.name = "Slideshow"
         this.slides = document.getElementsByClassName("slide");
@@ -34,15 +13,18 @@ class Slideshow {
         this.previous = document.getElementById("prev-arrow");
         this.stop = document.getElementById("stop-defil");
         this.slideIndex = 1;
-}
+        this.stateStop = 0;
+    }
 
-initSlideshow() {
-    this.showSlides();
-        document.addEventListener("keydown", this.keyboardControl.bind(this));
-        this.next.addEventListener("click", this.nextSlide.bind(this));
-        this.previous.addEventListener("click", this.previousSlide.bind(this));
+    initSlider() {
+        this.showSlides();
+        this.document.addEventListener("keydown", this.keyboardControl.bind(this));
+        //this.next.addEventListener("click", this.nextSlide.bind(this));
+        //this.previous.addEventListener("click", this.previousSlide.bind(this));
         this.stop.addEventListener("click", this.stopDefilement.bind(this));
-}*/
+    }
+   
+
 
     showSlides(n) {
 
@@ -59,15 +41,9 @@ initSlideshow() {
     }
 
 
-    plusSlides() {
-        this.showSlides(this.slideIndex += 1);
-    }
-
-    prevSlides() {
-        this.showSlides(this.slideIndex -= 1);
-    }
-
-
+    plusSlides(n) {
+        this.showSlides(slideIndex += n);
+}
 
 }
 
