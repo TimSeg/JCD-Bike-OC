@@ -4,8 +4,8 @@
 
 
 
-function Slider (){
-    constructor(slideshow) {
+class Slider {
+    constructor() {
         this.name = "slideshow";
         this.slides = document.getElementsByClassName("slide");
         this.dots = document.getElementsByClassName("dot");
@@ -14,16 +14,16 @@ function Slider (){
         this.stop = document.getElementById("stop-defil");
         this.slideIndex = 1;
         this.stateStop = 0;
-        this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
+        
     }
 
 
     initSlider() {
-        this.showSlides();
-        this.document.addEventListener("keydown", this.keyboardControl.bind(this));
+        //document.addEventListener("keydown", this.keyboardControl.bind(this));
         this.next.addEventListener("click", this.nextSlide.bind(this));
         this.previous.addEventListener("click", this.previousSlide.bind(this));
-        this.stop.addEventListener("click", this.stopDefilement.bind(this));
+        //this.stop.addEventListener("click", this.stopDefilement.bind(this));
+        this.nextSlide();
     }
    
 
@@ -46,6 +46,7 @@ function Slider (){
 
     nextSlide() {
         this.showSlides(this.slideIndex += 1);
+        this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
     }
 
     previousSlide() {

@@ -5,8 +5,8 @@
 // Check DOM content loaded
 
 // Set slider
-	var slider = new Slider();
-    slider.begin();
+var slider = new Slider();
+slider.initSlider();
 
 
 
