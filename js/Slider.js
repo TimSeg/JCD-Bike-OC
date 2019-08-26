@@ -12,7 +12,7 @@ class Slider {
         this.next = document.getElementById("next-arrow");
         this.previous = document.getElementById("prev-arrow");
         this.stop = document.getElementById("stop-defil");
-        this.slideIndex = 1;
+        this.slideIndex = 0;
         this.stateStop = 0;
         
     }
@@ -21,9 +21,11 @@ class Slider {
     initSlider() {
         document.addEventListener("keydown", this.keyboardControl.bind(this));
         this.next.addEventListener("click", this.nextSlide.bind(this));
-        this.previous.addEventListener("click", this.previousSlide.bind(this)
+        this.previous.addEventListener("click", this.previousSlide.bind(this));
         this.stop.addEventListener("click", this.stopAuto.bind(this));
+        
         this.nextSlide();
+        
     }
    
 
@@ -70,7 +72,7 @@ class Slider {
                 break;
 
             default:
-                console.log("Merci d'utiliser uniquement les flèches gauche/droite du clavier");
+                console.log("Merci d'utiliser uniquement les touches fléchées gauche/droite du clavier");
             
         }
     }
@@ -81,16 +83,17 @@ class Slider {
     stopAuto() {
         if (this.stateStop === 0) {
             clearTimeout(this.slideAutomation);
-            this.stop.textContent = "Demarrer le diaporama";
+            //this.stop.textContent = "Arrêter/Démarrer le diaporama";
             this.stateStop ++;
         }
         else  {
             this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
-            this.stop.textContent = "Arrêt du défilement";
+            //this.stop.textContent = "Arrêt du défilement";
             this.stateStop --;}
     }
 
 }
+
 
 
 
