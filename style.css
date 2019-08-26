@@ -2,7 +2,7 @@ body{
     font-size: 62.5%;
     margin: 0;
     text-align: center;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 
@@ -91,7 +91,9 @@ nav{
 #slideshow{
 	width: 100%;
   	position: relative;
-  	margin: auto;
+  	margin-top: 100px;
+  	justify-content: center;
+  	height: 20rem;
 }
 
 .fa-chevron-left{

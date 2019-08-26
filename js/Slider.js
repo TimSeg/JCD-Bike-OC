@@ -22,7 +22,7 @@ class Slider {
         //document.addEventListener("keydown", this.keyboardControl.bind(this));
         this.next.addEventListener("click", this.nextSlide.bind(this));
         this.previous.addEventListener("click", this.previousSlide.bind(this));
-        //this.stop.addEventListener("click", this.stopDefilement.bind(this));
+        this.stop.addEventListener("click", this.stopAuto.bind(this));
         this.nextSlide();
     }
    
@@ -52,6 +52,24 @@ class Slider {
     previousSlide() {
         this.showSlides(this.slideIndex -= 1);
     }
+
+// Stop slideshow automation
+
+    stopAuto() {
+        if (this.stateStop === 0) {
+            clearTimeout(this.slideAutomation);
+            this.stop.textContent = "Demarrer le diaporama";
+            this.stateStop ++;
+        }
+        else  {
+            this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
+            this.stop.textContent = "Arrêt du défilement";
+            this.stateStop --;}
+    }
+
+
+
+
 
 }
 
