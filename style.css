@@ -1,3 +1,8 @@
+*{
+	border: 1px solid red;
+}
+
+
 body{
     font-size: 62.5%;
     margin: 0;
@@ -90,11 +95,15 @@ nav{
 
 #slideshow{
 	width: 100%;
-  	position: relative;
   	margin-top: 100px;
   	justify-content: center;
-  	height: 20rem;
 }
+
+
+img{
+	max-width: 100%;
+}
+
 
 .fa-chevron-left{
     display: block;
@@ -139,7 +148,6 @@ nav{
  	padding: 8px 12px;
   	position: absolute;
   	bottom: 8px;
-  	width: 100%;
   	text-align: center;
 }
 

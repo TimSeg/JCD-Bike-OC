@@ -19,9 +19,9 @@ class Slider {
 
 
     initSlider() {
-        //document.addEventListener("keydown", this.keyboardControl.bind(this));
+        document.addEventListener("keydown", this.keyboardControl.bind(this));
         this.next.addEventListener("click", this.nextSlide.bind(this));
-        this.previous.addEventListener("click", this.previousSlide.bind(this));
+        this.previous.addEventListener("click", this.previousSlide.bind(this)
         this.stop.addEventListener("click", this.stopAuto.bind(this));
         this.nextSlide();
     }
@@ -43,15 +43,38 @@ class Slider {
     }
 
 
+//laft and right arrows click controls
+
 
     nextSlide() {
         this.showSlides(this.slideIndex += 1);
+        //set automatic scrolling
         this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
     }
 
     previousSlide() {
         this.showSlides(this.slideIndex -= 1);
     }
+
+//keyboard arrows controls for slideshow scrolling
+    
+    keyboardControl(e) {
+        switch (e.key) {
+
+            case "ArrowLeft":
+                this.previousSlide();
+                break;
+
+            case "ArrowRight":
+                this.nextSlide();
+                break;
+
+            default:
+                console.log("Merci d'utiliser uniquement les flèches gauche/droite du clavier");
+            
+        }
+    }
+
 
 // Stop slideshow automation
 
@@ -66,10 +89,6 @@ class Slider {
             this.stop.textContent = "Arrêt du défilement";
             this.stateStop --;}
     }
-
-
-
-
 
 }
 
