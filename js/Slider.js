@@ -39,9 +39,12 @@ class Slider {
         this.slideIndex = this.slides.length;
         }
         for (let i = 0; i < this.slides.length; i++) {
-        this.slides[i].style.display = "none"; 
+        this.slides[i].style.display = "none";
+        this.dots[i].style.backgroundColor = "red"; 
         }
-        this.slides[this.slideIndex-1].style.display = "block"; 
+        this.slides[this.slideIndex-1].style.display = "block";
+        this.dots[this.slideIndex-1].style.backgroundColor = "green";
+         
     }
 
 
