@@ -190,9 +190,44 @@ img{
 }
 
 
-/* SLIDESHOW END */
+/* SLIDESHOW ENDS */
 
 
+
+/* INTERACTIVE MAP + BOOKING FORM */
+
+#reservation{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+/* Map */ 
+
+#map {
+    display: block;
+    height: 400px;
+    min-width: 90%;
+    border: 2px solid black;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+
+/* Form */
+
+#booking{
+    display: block;
+    height: 400px;
+    min-width: 70%;
+    border: 2px solid black;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
 
 
 /*------BREAKPOINTS------*/
@@ -281,6 +316,11 @@ nav{
     z-index: 1;
 }
 
+
+#map{
+    width: 50%;
+    margin-left: 10px; 
+}
 
 
 
