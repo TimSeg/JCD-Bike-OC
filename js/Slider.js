@@ -14,7 +14,7 @@ class Slider {
         this.stop = document.getElementById("stop-defil");
         this.slideIndex = 0;
         this.stateStop = 0;
-        
+        this.slideAutomation = window.setInterval(this.nextSlide.bind(this), 5000);
     }
 
 
@@ -23,7 +23,6 @@ class Slider {
         this.next.addEventListener("click", this.nextSlide.bind(this));
         this.previous.addEventListener("click", this.previousSlide.bind(this));
         this.stop.addEventListener("click", this.stopAuto.bind(this));
-        
         this.nextSlide();
         
     }
@@ -54,7 +53,7 @@ class Slider {
     nextSlide() {
         this.showSlides(this.slideIndex += 1);
         //set automatic scrolling
-        this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
+        
     }
 
     previousSlide() {
@@ -85,12 +84,12 @@ class Slider {
 
     stopAuto() {
         if (this.stateStop === 0) {
-            clearTimeout(this.slideAutomation);
+            window.clearInterval(this.slideAutomation);
             //this.stop.textContent = "Arrêter/Démarrer le diaporama";
             this.stateStop ++;
         }
         else  {
-            this.slideAutomation = setTimeout(this.nextSlide.bind(this), 5000);
+            this.slideAutomation = window.setInterval(this.nextSlide.bind(this), 5000);
             //this.stop.textContent = "Arrêt du défilement";
             this.stateStop --;}
     }
