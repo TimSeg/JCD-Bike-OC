@@ -23,8 +23,7 @@ class Slider {
         this.next.addEventListener("click", this.nextSlide.bind(this));
         this.previous.addEventListener("click", this.previousSlide.bind(this));
         this.stop.addEventListener("click", this.stopAuto.bind(this));
-        this.nextSlide();
-        
+        this.nextSlide();       
     }
    
 
@@ -60,24 +59,7 @@ class Slider {
         this.showSlides(this.slideIndex -= 1);
     }
 
-//keyboard arrows controls for slideshow scrolling
-    
-    keyboardControl(e) {
-        switch (e.key) {
 
-            case "ArrowLeft":
-                this.previousSlide();
-                break;
-
-            case "ArrowRight":
-                this.nextSlide();
-                break;
-
-            default:
-                console.log("Merci d'utiliser uniquement les touches fléchées gauche/droite du clavier");
-            
-        }
-    }
 
 
 // Stop slideshow automation
@@ -92,6 +74,29 @@ class Slider {
             this.slideAutomation = window.setInterval(this.nextSlide.bind(this), 5000);
             //this.stop.textContent = "Arrêt du défilement";
             this.stateStop --;}
+    }
+
+//keyboard arrows controls for slideshow scrolling
+    
+    keyboardControl(e) {
+        switch (e.code) {
+
+            case "ArrowLeft":
+                this.previousSlide();
+                break;
+
+            case "ArrowRight":
+                this.nextSlide();
+                break;
+
+            case "Space":
+                this.stopAuto();
+                break;
+
+            default:
+                alert("Merci d'utiliser uniquement les touches fléchées <-/-> ou Espace du clavier");
+            
+        }
     }
 
 }

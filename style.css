@@ -11,6 +11,22 @@ body{
 /*mobile screen and general properties*/
 
 
+h1,
+h2,
+p,
+ul{
+    font-family: "Roboto", sans-serif;
+}
+
+h1{
+    font-size: 1.8rem;
+}
+
+
+ul{
+    list-style: none;
+}
+
 
 
 nav{
@@ -152,6 +168,7 @@ img{
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .dot{
@@ -199,7 +216,7 @@ img{
 #reservation{
     display: flex;
     flex-wrap: wrap;
-
+    margin-bottom: 50px;
 }
 
 /* Map */ 
@@ -229,6 +246,22 @@ img{
     z-index: 1;
 }
 
+.liste{
+    font-size: 0.8rem;
+    text-align: left;
+    line-height: 5;
+    font-weight: bold;
+}
+
+#butBooking{
+    margin-top: 30px;
+    font-size: 2rem;
+    color: white;
+    background-color: #FC4205;
+    padding: 0.3rem;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0px #aaa;
+}
 
 /*------BREAKPOINTS------*/
 
@@ -318,9 +351,14 @@ nav{
 
 
 #map{
-    width: 50%;
+    min-width: 55%;
     margin-left: 10px; 
 }
+
+#booking{
+    min-width: 40%;
+}
+
 
 
 
