@@ -14,7 +14,8 @@ body{
 h1,
 h2,
 p,
-ul{
+ul,
+.slide-text{
     font-family: "Roboto", sans-serif;
 }
 
@@ -126,11 +127,11 @@ img{
     top: 45%;
     left: 0;
     color: white;
-    font-size: 0.4rem;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    font-size: 0.8rem;
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 5px 5px 1px;
+    padding: 10px 10px 10px 5px;
     z-index: 1;
 }
 
@@ -139,11 +140,11 @@ img{
     top: 45%;
     right: 0;
     color: white;
-    font-size: 0.4rem;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    font-size: 0.8rem;
+    border-bottom-left-radius: 17px;
+    border-top-left-radius: 17px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 1px 5px 5px;
+    padding: 10px 5px 10px 10px;
     z-index: 1;
 }
 
@@ -182,9 +183,15 @@ img{
 
 }
 
-.active, .dot:hover{
-  	background-color: #717171;
+#stop-defil{
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #FC4205;
+    padding: 0.3rem;
+    border-radius: 5px;
 }
+
 
 
 /*animated fading*/
@@ -213,7 +220,7 @@ img{
 
 /* INTERACTIVE MAP + BOOKING FORM */
 
-#reservation{
+#station-location{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
@@ -257,10 +264,9 @@ img{
     margin-top: 30px;
     font-size: 2rem;
     color: white;
-    background-color: #FC4205;
+    background-color: #4B9E58;
     padding: 0.3rem;
     border-radius: 5px;
-    box-shadow: 3px 3px 0px #aaa;
 }
 
 /*------BREAKPOINTS------*/
