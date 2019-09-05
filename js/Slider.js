@@ -91,12 +91,14 @@ class Slider {
 
             case "Space":
                 this.stopAuto();
+                event.preventDefault();
                 break;
 
             default:
                 alert("Merci d'utiliser uniquement les touches fléchées <-/-> ou Espace du clavier");
             
         }
+
     }
 
 }
