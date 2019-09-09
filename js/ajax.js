@@ -1,0 +1,3 @@
+// Strict mode
+"use strict";
+

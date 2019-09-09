@@ -6,8 +6,10 @@ class GoogleMap {
 
         // Add coordonates for center map
 
-        this.lille = {
-            lat: 50.629622,
-            lng: 3.068808
+        this.amiens = {
+            lat: 49.894009,
+            lng: 2.295838
         };
     }
+
+   

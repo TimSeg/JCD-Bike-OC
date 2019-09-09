@@ -91,6 +91,7 @@ class Slider {
 
             case "Space":
                 this.stopAuto();
+                //prevent auto-scroll on spacebar
                 event.preventDefault();
                 break;
 
