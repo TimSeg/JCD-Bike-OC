@@ -12,4 +12,10 @@ class GoogleMap {
         };
     }
 
-   
+initGoogleMap() {
+    let gMap = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: this.amiens
+    });
+    }
+}

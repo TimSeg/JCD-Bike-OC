@@ -14,10 +14,9 @@ slider.initSlider();
 // Set map
 
 var map = new GoogleMap();
-map.initMap();
-
-
-
+function initMap() {
+  map.initGoogleMap();
+}
 
 
 //Set form
