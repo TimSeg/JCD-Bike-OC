@@ -256,12 +256,12 @@ img{
 .liste{
     font-size: 0.8rem;
     text-align: left;
-    line-height: 5;
+    line-height: 4;
     font-weight: bold;
 }
 
 #butBooking{
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 2rem;
     color: white;
     background-color: #4B9E58;

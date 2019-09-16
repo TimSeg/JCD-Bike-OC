@@ -94,6 +94,13 @@
 				
 			<ul class="liste">
 				<!--infos retrieved from JS document-->
+
+				<li>
+					<span class ="info">Nom :</span>
+		 			<!--chosen station adress-->
+					<span id="stationName" class="infoContent"></span>
+				</li>
+
 				<li>
 					<span class ="info">Adresse :</span>
 		 			<!--chosen station adress-->
@@ -102,7 +109,7 @@
 				<li>
 					<span class ="info">Etat :</span>
 					<!--open/close status--> 
-					<span id="stationStatus" class="infoContent"></span>
+					<span id="statusStation" class="infoContent"></span>
 				</li>
 				<li>
 					<span class ="info">Nbr vélos disponibles :</span>
@@ -139,9 +146,10 @@
 <script src="js/Slider.js"></script>
 <script src="js/ajax.js"></script>
 <script src="js/GoogleMap.js"></script>
-<script src="js/script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmj8GitRzicYqQ_fxDaq-Kr2hRgkSijfk&callback=initMap"
         async="" defer=""></script>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
