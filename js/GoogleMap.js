@@ -19,18 +19,34 @@ initMap() {
         center: this.amiens
     });
 
+
+
+
+
+
+
     ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Amiens&apiKey=79fd38d925a7ea9a6962391cf653c7abcb7ac88f",
         function (reponse) {
+
+            let stations = JSON.parse(reponse);
+            let latitude, longitude;
+
+            // Markers on stations
+            stations.forEach(function (station) {
+                latitude = station.position.lat;
+                longitude = station.position.lng;
+                addMarker(station);
+            });
             function addMarker(station) {
                 let stationStatus = document.getElementById("statusStation");
-
                 let marker = new google.maps.Marker({
                     position: station.position,
                     map: gMap,
                     icon:""
                 });
 
-                // Check if station Open
+
+                // green marker if station OPEN / red marker if closed (use else)
                 if (station.status === "OPEN") {
                     marker.icon= {
                         url: "images/green-marker.png",
@@ -45,69 +61,53 @@ initMap() {
                 if (station.name) {
                     const reserve = document.getElementById("booking");
 
+
+                    // Station status + infos text
+                    if (station.status === "OPEN") {
+                        stationStatus.textContent = "Station ouverte";
+                    } else {
+                        stationStatus.textContent = "Station fermée";
+                    }
+
+
                     marker.addListener("click", function () {
                         const stationName = document.getElementById("stationName");
                         const stationAddress = document.getElementById("stationAddress");
-                        const bikeStands = document.getElementById("standsAvailable");
                         const availableBikes = document.getElementById("bikesAvailable");
-                        const buttonReservation = document.getElementById("butBooking");
+                        const bikeStands = document.getElementById("standsAvailable");
+                        const buttonBooking = document.getElementById("butBooking");
 
-                        // Status infos
-                        if (station.status === "OPEN") {
-                            stationStatus.textContent = "Station ouverte";
-                        } else {
-                            stationStatus.textContent = "Station fermée";
-                        }
-
-                        //Removing excessive numbers with regex
-                        const regex = /#0+0/gm;
                         const nameString = `${station.name}`;
                         const addressString = `${station.address}`;
-                        const subst = "";
 
-
-                        // The substituted value will be contained in the result variable
-
-                        const nameTruncated = nameString.replace(regex, subst);
-                        const addressTruncated = addressString.replace(regex, subst);
-
-
-                        stationName.innerText = nameTruncated;
-                        stationAddress.innerText = addressTruncated;
+                        stationName.innerText = nameString;
+                        stationAddress.innerText = addressString;
                         bikeStands.innerText = station.bike_stands;
                         availableBikes.innerText = station.available_bikes;
 
                         sessionStorage.setItem("stationBikeAvailable", station.available_bikes);
                         let bikeAvailable = sessionStorage.getItem("stationBikeAvailable");
 
-                        // Bike available minus 1 by click on validate btn
-                        buttonReservation.addEventListener("click", function () {
+                        // Available bikes minus 1 if click on booking button
+                        buttonBooking.addEventListener("click", function () {
                             if (station.available_bikes < 1) {
-                                availableBikes.innerText = "Aucun vélo de disponible à cette station.";
-                                buttonReservation.classList.add("hide");
+                                availableBikes.innerText = "Zéro vélo disponible ici";
+                                buttonBooking.classList.add("hide");
                             } else if (station.available_bikes > 0) {
-                                availableBikes.innerText = station.available_bikes + " vélo(s) restant(s) disponible(s).";
+                                availableBikes.innerText = station.available_bikes;
                             }
                         });
                         if (station.available_bikes > 0) {
-                            buttonReservation.classList.remove("hide");
+                            buttonBooking.classList.remove("hide");
                         }
 
-                        sessionStorage.setItem("stationname", nameTruncated);
-                        sessionStorage.setItem("stationaddress", addressTruncated);
+                        sessionStorage.setItem("stationname", nameString);
+                        sessionStorage.setItem("stationaddress", addressString);
                     });
                 }
 
             }
 
-            let stations = JSON.parse(reponse);
-            let latitude, longitude;
-            // Add Markers for each station latitude & longitude
-            stations.forEach(function (station) {
-                latitude = station.position.lat;
-                longitude = station.position.lng;
-                addMarker(station);
-            });
         });
 
 
