@@ -35,12 +35,10 @@ initMap() {
                     marker.icon= {
                         url: "images/green-marker.png",
                     };
-                    //stationStatus.textContent = "Station ouverte";
                 } else {
                     marker.icon= {
-                        url:"img/red-marker.png"
+                        url:"images/red-marker.png"
                     };
-                    //stationStatus.textContent = "Station fermée";
                 }
 
                 // Check content
@@ -48,13 +46,9 @@ initMap() {
                     const reserve = document.getElementById("booking");
 
                     marker.addListener("click", function () {
-
-                        reserve.classList.remove("hide");
-                        reserve.classList.add("flex");
-
                         const stationName = document.getElementById("stationName");
                         const stationAddress = document.getElementById("stationAddress");
-                        const bikeStands = document.getElementById("locksAvailable");
+                        const bikeStands = document.getElementById("standsAvailable");
                         const availableBikes = document.getElementById("bikesAvailable");
                         const buttonReservation = document.getElementById("butBooking");
 
@@ -65,20 +59,23 @@ initMap() {
                             stationStatus.textContent = "Station fermée";
                         }
 
-                        // Removing excessive numbers with regex
+                        //Removing excessive numbers with regex
                         const regex = /#0+0/gm;
                         const nameString = `${station.name}`;
                         const addressString = `${station.address}`;
                         const subst = "";
 
+
                         // The substituted value will be contained in the result variable
+
                         const nameTruncated = nameString.replace(regex, subst);
                         const addressTruncated = addressString.replace(regex, subst);
 
+
                         stationName.innerText = nameTruncated;
-                        stationAddress.innerText = "Adresse: " + addressTruncated;
-                        bikeStands.innerText = station.bike_stands + " supports à vélo.";
-                        availableBikes.innerText = station.available_bikes + " vélo(s) restant(s) disponible(s).";
+                        stationAddress.innerText = addressTruncated;
+                        bikeStands.innerText = station.bike_stands;
+                        availableBikes.innerText = station.available_bikes;
 
                         sessionStorage.setItem("stationBikeAvailable", station.available_bikes);
                         let bikeAvailable = sessionStorage.getItem("stationBikeAvailable");
@@ -92,7 +89,6 @@ initMap() {
                                 availableBikes.innerText = station.available_bikes + " vélo(s) restant(s) disponible(s).";
                             }
                         });
-
                         if (station.available_bikes > 0) {
                             buttonReservation.classList.remove("hide");
                         }
