@@ -14,8 +14,9 @@ slider.initSlider();
 // Set map
 
 var map = new GoogleMap();
+
 function initMap() {
-  map.initGoogleMap();
+  map.initMap();
 }
 
 
