@@ -19,12 +19,6 @@ initMap() {
         center: this.amiens
     });
 
-
-
-
-
-
-
     ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Amiens&apiKey=79fd38d925a7ea9a6962391cf653c7abcb7ac88f",
         function (reponse) {
 
@@ -57,10 +51,9 @@ initMap() {
                     };
                 }
 
-                // Check content
+                // Display infos for each selected station
                 if (station.name) {
-                    const reserve = document.getElementById("booking");
-
+                    const reservation = document.getElementById("booking");
 
                     // Station status + infos text
                     if (station.status === "OPEN") {
@@ -68,7 +61,6 @@ initMap() {
                     } else {
                         stationStatus.textContent = "Station fermée";
                     }
-
 
                     marker.addListener("click", function () {
                         const stationName = document.getElementById("stationName");
@@ -82,27 +74,9 @@ initMap() {
 
                         stationName.innerText = nameString;
                         stationAddress.innerText = addressString;
-                        bikeStands.innerText = station.bike_stands;
                         availableBikes.innerText = station.available_bikes;
+                        bikeStands.innerText = station.available_bike_stands;
 
-                        sessionStorage.setItem("stationBikeAvailable", station.available_bikes);
-                        let bikeAvailable = sessionStorage.getItem("stationBikeAvailable");
-
-                        // Available bikes minus 1 if click on booking button
-                        buttonBooking.addEventListener("click", function () {
-                            if (station.available_bikes < 1) {
-                                availableBikes.innerText = "Zéro vélo disponible ici";
-                                buttonBooking.classList.add("hide");
-                            } else if (station.available_bikes > 0) {
-                                availableBikes.innerText = station.available_bikes;
-                            }
-                        });
-                        if (station.available_bikes > 0) {
-                            buttonBooking.classList.remove("hide");
-                        }
-
-                        sessionStorage.setItem("stationname", nameString);
-                        sessionStorage.setItem("stationaddress", addressString);
                     });
                 }
 
@@ -111,10 +85,7 @@ initMap() {
         });
 
 
-
-
 }
-
 
 
 }
