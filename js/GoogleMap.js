@@ -7,10 +7,9 @@ class GoogleMap {
 
         // Add coordonates for center map
 
-        this.amiens = {
-            lat: 49.894009,
-            lng: 2.295838
-        };
+        this.amiens = {lat: 49.894009, lng: 2.295838};
+
+
     }
 
 initMap() {
@@ -39,26 +38,15 @@ initMap() {
                     icon:""
                 });
 
-
-                // green marker if station OPEN / red marker if closed (use else)
-                if (station.status === "OPEN") {
-                    marker.icon= {
-                        url: "images/green-marker.png",
-                    };
-                } else {
-                    marker.icon= {
-                        url:"images/red-marker.png"
-                    };
-                }
-
-                // Display infos for each selected station
+// Display infos for each selected station
                 if (station.name) {
                     const reservation = document.getElementById("booking");
 
                     // Station status + infos text
                     if (station.status === "OPEN") {
                         stationStatus.textContent = "Station ouverte";
-                    } else {
+                    }
+                    else {
                         stationStatus.textContent = "Station fermée";
                     }
 
@@ -78,6 +66,16 @@ initMap() {
                         bikeStands.innerText = station.available_bike_stands;
 
                     });
+
+
+                // green marker if station OPEN / red marker if closed (use else)
+                    if (station.status === "OPEN") {
+                        marker.icon= {url: "images/green-marker.png",};
+                    } else {
+                        marker.icon= {url:"images/red-marker.png"};
+                    }
+
+
                 }
 
             }
