@@ -36,7 +36,7 @@ class GoogleMap {
                         icon:""
                     });
 
-// Display infos for each selected station
+                    // Display infos for each selected station
                     if (station.name) {
                         const reservation = document.getElementById("booking");
 

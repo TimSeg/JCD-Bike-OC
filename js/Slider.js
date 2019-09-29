@@ -96,7 +96,7 @@ class Slider {
                 break;
 
             default:
-                alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier ou + et - sur la carte");
+                alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier");
             
         }
 
