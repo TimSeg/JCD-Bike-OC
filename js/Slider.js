@@ -93,11 +93,16 @@ class Slider {
                 this.stopAuto();
                 //prevent auto-scroll on spacebar
                 event.preventDefault();
+
+
                 break;
 
             default:
-                alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier");
-            
+                if(window.scrollY <= 400) {
+                    alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier");
+                }
+
+
         }
 
     }

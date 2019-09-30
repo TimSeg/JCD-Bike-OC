@@ -62,6 +62,33 @@ class GoogleMap {
                             stationAddress.innerText = addressString;
                             availableBikes.innerText = station.available_bikes;
                             bikeStands.innerText = station.available_bike_stands;
+
+
+                            // Bike available minus 1 by click on validate btn
+                            buttonReservation.addEventListener("click", function () {
+                                if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
+                                    realAvailableBikes = station.available_bikes-1;
+                                    availableBikes.innerText = realAvailableBikes;
+                                    sessionStorage.setItem("stationBikeAvailable", realAvailableBikes);
+                                } else {
+                                    realAvailableBikes = station.available_bikes;
+                                }
+
+
+                                if (realAvailableBikes < 1) {
+                                    availableBikes.innerText = "Aucun vélo de disponible à cette station.";
+                                    buttonBooking.classList.add("hide");
+                                } else if (realAvailableBikes > 0) {
+                                    availableBikes.innerText = realAvailableBikes ;
+                                    buttonBooking.classList.remove("hide");
+                                }
+
+                                sessionStorage.setItem("stationname");
+                                sessionStorage.setItem("stationaddress");
+                            });
+
+
+
                         });
 
                         // green marker if station OPEN / red marker if closed (use else)
@@ -70,6 +97,13 @@ class GoogleMap {
                         } else {
                             marker.icon= {url:"images/red-marker.png"};
                         }
+
+
+                        let realAvailableBikes = 0;
+                        realAvailableBikes = sessionStorage.getItem("stationBikeAvailable");
+
+
+
                     }
                 }
             });
