@@ -22,4 +22,10 @@ function initMap() {
 
 //Set form
 
+var booking = new Booking();
+booking.initBooking();
+
+
+
+
 //Set canvas

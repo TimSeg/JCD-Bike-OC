@@ -98,7 +98,7 @@ class Slider {
                 break;
 
             default:
-                if(window.scrollY <= 400) {
+                if(window.scrollY <= 200) {
                     alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier");
                 }
 
