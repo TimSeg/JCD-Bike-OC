@@ -123,9 +123,8 @@
 				</li>
 			</ul>
 
-			<button type="button" id="butBooking">Je réserve !</button>
-
-			<form>
+		<div id="volet_clos">
+			<form id="volet">
 				<label for="lastname">Votre nom: </label>
 				<input type="text" name="lastname" id="lastname">
 
@@ -134,13 +133,15 @@
 
 				<span id="directives"></span>
 
-				<button type="button" id="reserv">Réserver</button>
+				<button type="button" id="validate">Valider</button>
+
+
+				<a href="#volet" class="open" id="butBooking">Réserver</a>
+				<a href="#volet_clos" class="close">Retour</a>
 			</form>
-
-
-
-		</div>	
-
+		</div>
+			<span id="reservation">Réserver</span>
+		</div>
 	</article>
 
 	<article class="confirmation">
@@ -148,7 +149,8 @@
 	</article>
 
 	<footer id="contact">
-		<!--social networks links + user policy-->	
+		<!--social networks links + user policy-->
+
 	</footer>
 
 
@@ -160,7 +162,7 @@
 <script src="js/Slider.js"></script>
 <script src="js/ajax.js"></script>
 <script src="js/GoogleMap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmj8GitRzicYqQ_fxDaq-Kr2hRgkSijfk&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
         async="" defer=""></script>
 <script src="js/bookingForm.js"></script>
 <script src="js/script.js"></script>

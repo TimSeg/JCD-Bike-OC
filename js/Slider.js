@@ -99,7 +99,7 @@ class Slider {
 
             default:
                 if(window.scrollY <= 200) {
-                    alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier");
+                    alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier pour naviguer sur le diaporama");
                 }
 
 

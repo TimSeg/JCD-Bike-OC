@@ -259,14 +259,77 @@ img{
     font-weight: bold;
 }
 
+
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    top: -89px;
+    height: 360px;
+    width: 80%;
+    padding: 10px;
+    background: #6B9A49; color: #fff;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+    opacity: 0;
+    z-index: 3;
+}
+
+
+
+form a.open {
+    text-decoration: none;
+    position: relative;
+    top: -378px;
+}
+
+form:target {
+    top: -300px;
+    opacity: 1;
+}
+
+
+form a.close {
+    display: none;
+}
+
+#volet_clos:target form {
+    top: 312px;
+}
+
+form:target a.open {
+    display: none;
+}
+form:target a.close {
+    display: block;
+    font-size: 2.8em;
+    position: relative;
+    top: 235px;
+}
+
+
+
+
 #butBooking{
-    margin-top: 10px;
     font-size: 2rem;
     color: white;
     background-color: #4B9E58;
     padding: 0.3rem;
     border-radius: 5px;
 }
+
+#reservation{
+    position: relative;
+    top: -350px;
+    font-size: 2rem;
+    color: white;
+    background-color: #4B9E58;
+    padding: 0.3rem;
+    border-radius: 5px;
+    z-index: 2;
+}
+
 
 /*------BREAKPOINTS------*/
 
