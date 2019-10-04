@@ -275,6 +275,8 @@ form {
 
 
 #button-check + label{
+    position: relative;
+    top: 40px;
     font-size: 2rem;
     color: white;
     background-color: #4B9E58;

@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,13 @@
 <!--always displayed header-->
 <header>
     <nav>
-    	
+
         <h1>Book-a-Bike</h1>
         <p>Le vélo en toute liberté !</p>
-        
+
 
         <div id="menuToggle">
-        	<input type="checkbox">
+            <input type="checkbox">
             <i class="fa fa-bars fa-2x"></i>
 
             <ul class="main-navigation">
@@ -34,7 +34,7 @@
                 <li>
                     <a href="#contact">Suivez-nous !</a>
                 </li>
-            </ul> 
+            </ul>
         </div>
     </nav>
 </header>
@@ -42,114 +42,114 @@
 
 <main>
 
-		<!--manual scroll + auto scroll-->
-	<article id="slideshow">
+    <!--manual scroll + auto scroll-->
+    <article id="slideshow">
 
-		
 
-		<figure class="slide fade">
-			<img src="images/map-pic.png" alt="repérage">
-			<figcaption class="slide-text">Choississez une station proche de vous.</figcaption>
-		</figure>
 
-		<figure class="slide fade">
-			<img src="images/form-icon.png" alt="votre identité">
-			<figcaption class="slide-text">Entrez vos informations personnelles puis signez.</figcaption> 
-		</figure>
+        <figure class="slide fade">
+            <img src="images/map-pic.png" alt="repérage">
+            <figcaption class="slide-text">Choississez une station proche de vous.</figcaption>
+        </figure>
 
-		<figure class="slide fade">
-			<img src="images/clock.png" alt="réservation limitée">
-			<figcaption class="slide-text">Une fois réservé, vous disposez de 20 minutes pour récupérer votre vélo.</figcaption>
-		</figure>
+        <figure class="slide fade">
+            <img src="images/form-icon.png" alt="votre identité">
+            <figcaption class="slide-text">Entrez vos informations personnelles puis signez.</figcaption>
+        </figure>
 
-		<span id="prev-arrow"><i class="fas fa-chevron-left"></i></span>
+        <figure class="slide fade">
+            <img src="images/clock.png" alt="réservation limitée">
+            <figcaption class="slide-text">Une fois réservé, vous disposez de 20 minutes pour récupérer votre vélo.</figcaption>
+        </figure>
+
+        <span id="prev-arrow"><i class="fas fa-chevron-left"></i></span>
         <span id="next-arrow"><i class="fas fa-chevron-right"></i></span>
 
- <!--monitoring dots-->
-		<div class="monitoring-dots">
-  			<span class="dot"></span> 
-  			<span class="dot"></span> 
-  			<span class="dot"></span> 
-		</div>
+        <!--monitoring dots-->
+        <div class="monitoring-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
 
         <button type="button" id="stop-defil">Arrêter/démarrer le diaporama</button>
 
-	</article>
+    </article>
 
 
 
 
-	<article id="station-location">
-		
-		<!--MAP-->
-		<div id="map"></div>
+    <article id="station-location">
+
+        <!--MAP-->
+        <div id="map"></div>
 
 
 
-		<!--PERSONNAL INFOS AND BOOKING-->
+        <!--PERSONNAL INFOS AND BOOKING-->
 
-		<div id="booking">
-			
-			<h2 class="section-tittle">Station choisie</h2>
-				
-			<ul class="liste">
-				<!--infos retrieved from JS document-->
+        <div id="booking">
 
-				<li>
-					<span class ="info">Numéro et Nom :</span>
-		 			<!--chosen station adress-->
-					<span id="stationName" class="infoContent"></span>
-				</li>
+            <h2 class="section-tittle">Station choisie</h2>
 
-				<li>
-					<span class ="info">Adresse :</span>
-		 			<!--chosen station adress-->
-					<span id="stationAddress" class="infoContent"></span>
-				</li>
-				<li>
-					<span class ="info">Etat :</span>
-					<!--open/close status--> 
-					<span id="statusStation" class="infoContent"></span>
-				</li>
-				<li>
-					<span class ="info">Nbr vélos disponibles :</span>
-					<!--available bikes-->
-					<span id="bikesAvailable" class="infoContent"></span>
-				</li>
-				<li>
-					<span class ="info">Nbr points d'attache disponibles :</span>
-					<!--available padlocks-->
-					<span id="standsAvailable" class="infoContent"></span>
-				</li>
-			</ul>
+            <ul class="liste">
+                <!--infos retrieved from JS document-->
 
-			<input id="button-check" type="checkbox">
-			<label for="button-check">Réserver</label>
+                <li>
+                    <span class ="info">Numéro et Nom :</span>
+                    <!--chosen station adress-->
+                    <span id="stationName" class="infoContent"></span>
+                </li>
 
-			<form id="volet">
-				<label for="lastname">Votre nom: </label>
-				<input type="text" name="lastname" id="lastname">
+                <li>
+                    <span class ="info">Adresse :</span>
+                    <!--chosen station adress-->
+                    <span id="stationAddress" class="infoContent"></span>
+                </li>
+                <li>
+                    <span class ="info">Etat :</span>
+                    <!--open/close status-->
+                    <span id="statusStation" class="infoContent"></span>
+                </li>
+                <li>
+                    <span class ="info">Nbr vélos disponibles :</span>
+                    <!--available bikes-->
+                    <span id="bikesAvailable" class="infoContent"></span>
+                </li>
+                <li>
+                    <span class ="info">Nbr points d'attache disponibles :</span>
+                    <!--available padlocks-->
+                    <span id="standsAvailable" class="infoContent"></span>
+                </li>
+            </ul>
 
-				<label for="firstname">Votre prénom: </label>
-				<input type="text" name="firstname" id="firstname">
+            <input id="button-check" type="checkbox">
+            <label for="button-check">Réserver/Retour</label>
 
-				<span id="directives"></span>
+            <form id="volet">
+                <label for="lastname">Votre nom: </label>
+                <input type="text" name="lastname" id="lastname">
 
-				<button type="button" id="validate">Valider</button>
+                <label for="firstname">Votre prénom: </label>
+                <input type="text" name="firstname" id="firstname">
 
-			</form>
+                <span id="directives"></span>
 
+                <button type="button" id="validate">Valider</button>
 
-	</article>
+            </form>
 
-	<article class="confirmation">
-		<!--booked bike + timer until delete-->
-	</article>
+        </div>
+    </article>
 
-	<footer id="contact">
-		<!--social networks links + user policy-->
+    <article class="confirmation">
+        <!--booked bike + timer until delete-->
+    </article>
 
-	</footer>
+    <footer id="contact">
+        <!--social networks links + user policy-->
+
+    </footer>
 
 
 </main>

@@ -48,12 +48,21 @@ class GoogleMap {
                             stationStatus.textContent = "Station fermée";
                         }
 
+
+                        // green marker if station OPEN / red marker if closed (use else)
+                        if (station.status === "OPEN") {
+                            marker.icon= {url: "images/green-marker.png",};
+                        } else {
+                            marker.icon= {url:"images/red-marker.png"};
+                        }
+
+
                         marker.addListener("click", function () {
                             const stationName = document.getElementById("stationName");
                             const stationAddress = document.getElementById("stationAddress");
                             const availableBikes = document.getElementById("bikesAvailable");
                             const bikeStands = document.getElementById("standsAvailable");
-                            const buttonBooking = document.getElementById("butBooking");
+                            const buttonBooking = document.getElementById("validate");
 
                             const nameString = `${station.name}`;
                             const addressString = `${station.address}`;
@@ -62,14 +71,61 @@ class GoogleMap {
                             stationAddress.innerText = addressString;
                             availableBikes.innerText = station.available_bikes;
                             bikeStands.innerText = station.available_bike_stands;
+
+                            // Removing excessive numbers with regex
+                            const regex = /#0+0/gm;
+
+                            const subst = "";
+
+                            // The substituted value will be contained in the result variable
+                            const nameTruncated = nameString.replace(regex, subst);
+                            const addressTruncated = addressString.replace(regex, subst);
+
+                            let realAvailableBikes = 0;
+                            realAvailableBikes = sessionStorage.getItem("stationBikeAvailable");
+
+
+
+
+                            // Bike available minus 1 by click on validate btn
+                            buttonBooking.addEventListener("click", function () {
+                                if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
+                                    realAvailableBikes = station.available_bikes-1;
+                                    availableBikes.innerText = realAvailableBikes + " vélo(s) restant(s) disponible(s).";
+                                    sessionStorage.setItem("stationBikeAvailable", realAvailableBikes);
+                                } else {
+                                    realAvailableBikes = station.available_bikes;
+                                }
+
+
+                                if (realAvailableBikes < 1) {
+                                    availableBikes.innerText = "Aucun vélo de disponible à cette station.";
+                                    buttonBooking.classList.add("hide");
+                                } else if (realAvailableBikes > 0) {
+                                    availableBikes.innerText = realAvailableBikes + " vélo(s) restant(s) disponible(s).";
+                                    buttonBooking.classList.remove("hide");
+                                }
+
+                                sessionStorage.setItem("stationname", nameTruncated);
+                                sessionStorage.setItem("stationaddress", addressTruncated);
+                            });
+
+                            if (reservation.storedLastName !== "" && reservation.storedFirstName !== "")
+                            {
+                                document.getElementById("lastname").value = reservation.storedLastName;
+                                document.getElementById("firstname").value = reservation.storedFirstName;
+                            }
+
+
+
                         });
 
-                        // green marker if station OPEN / red marker if closed (use else)
-                        if (station.status === "OPEN") {
-                            marker.icon= {url: "images/green-marker.png",};
-                        } else {
-                            marker.icon= {url:"images/red-marker.png"};
-                        }
+
+
+
+
+
+
                     }
                 }
             });
