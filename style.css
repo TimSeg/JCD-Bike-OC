@@ -15,6 +15,7 @@ h1,
 h2,
 p,
 ul,
+label,
 .slide-text{
     font-family: "Roboto", sans-serif;
 }
@@ -23,9 +24,16 @@ h1{
     font-size: 1.8rem;
 }
 
+h1+p{
+    font-size: 1.5rem;
+}
 
 ul{
     list-style: none;
+}
+
+li{
+
 }
 
 
@@ -83,6 +91,7 @@ nav{
 }
 
 .main-navigation{
+    font-size: 1rem;
     position: absolute;
     width: 100%;
     margin: -100px 0 0 -20px;
@@ -265,19 +274,20 @@ form {
     flex-direction: column;
     position: relative;
     margin: 0 auto;
-    top: -345px;
-    height: 280px;
-    width: 80%;
+    top: -340px;
+    height: 330px;
+    width: 90%;
     padding: 10px;
-    background: #6B9A49; color: #fff;
+    background-color: darkgrey;
+    color: black;
 
 }
 
 
 #button-check + label{
     position: relative;
-    top: 40px;
-    font-size: 2rem;
+    top: 50px;
+    font-size: 1.5rem;
     color: white;
     background-color: #4B9E58;
     padding: 0.3rem;
@@ -291,6 +301,32 @@ form,
 
 [type="checkbox"]:checked ~ form {
     display: flex;
+}
+
+form>label{
+    font-size: 1rem;
+}
+
+form>button {
+    position: relative;
+    top: 5px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: mediumvioletred;
+    border-radius: 5px;
+}
+
+#canvas{
+    position: relative;
+    top: -5px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    border: 3px solid midnightblue;
+}
+
+.directive{
+    font-size: 0.8rem;
+    font-weight: bold;
 }
 
 /*------BREAKPOINTS------*/
