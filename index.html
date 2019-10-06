@@ -146,9 +146,22 @@
         </div>
     </article>
 
-    <article class="confirmation">
-        <!--booked bike + timer until delete-->
-    </article>
+    <!--booked bike + timer until delete-->
+
+
+        <article id="infoBooking" class="booking-data">
+
+
+
+            <div id="bookingConfirmed" class="hide">
+                <p>Vélo réservé par <span id="lastNameConfirm"></span> <span id="firstNameConfirm"></span> à cette adresse :
+                <p id="stationConfirm"></p>
+                Il vous reste <span id="minTimer"></span> minute(s) et <span id="secTimer"></span> seconde(s) pour récupérer votre vélo.
+            </div>
+
+            <p id="bookingTimerUp" class="hide">Temps écoulé, réservation annulée. Merci de faire une nouvelle réservation.</p>
+
+        </article>
 
     <footer id="contact">
         <!--social networks links + user policy-->

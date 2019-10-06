@@ -1,7 +1,8 @@
 "use strict";
 
-class Booking {
+class Canvas {
     constructor() {
+
 
 
     }

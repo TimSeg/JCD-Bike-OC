@@ -329,6 +329,15 @@ form>button {
     font-weight: bold;
 }
 
+
+
+/* CONFIRMED RESERVATION PART */
+
+hide {
+    display: none;
+}
+
+
 /*------BREAKPOINTS------*/
 
 /*pad screen*/
