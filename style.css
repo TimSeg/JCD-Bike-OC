@@ -333,7 +333,7 @@ form>button {
 
 /* CONFIRMED RESERVATION PART */
 
-hide {
+.hide {
     display: none;
 }
 

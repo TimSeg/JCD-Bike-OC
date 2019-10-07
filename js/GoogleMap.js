@@ -28,6 +28,7 @@ class GoogleMap {
                     longitude = station.position.lng;
                     addMarker(station);
                 });
+
                 function addMarker(station) {
                     let stationStatus = document.getElementById("statusStation");
                     let marker = new google.maps.Marker({
@@ -52,7 +53,8 @@ class GoogleMap {
                         // green marker if station OPEN / red marker if closed (use else)
                         if (station.status === "OPEN") {
                             marker.icon= {url: "images/green-marker.png",};
-                        } else {
+                        }
+                        else {
                             marker.icon= {url:"images/red-marker.png"};
                         }
 
@@ -72,60 +74,37 @@ class GoogleMap {
                             availableBikes.innerText = station.available_bikes;
                             bikeStands.innerText = station.available_bike_stands;
 
-                            // Removing excessive numbers with regex
-                            const regex = /#0+0/gm;
 
-                            const subst = "";
+                            // New available bikes number : -1 on validation
+                            let newAvailableBikes = 0;
 
-                            // The substituted value will be contained in the result variable
-                            const nameTruncated = nameString.replace(regex, subst);
-                            const addressTruncated = addressString.replace(regex, subst);
-
-                            let realAvailableBikes = 0;
-                            realAvailableBikes = sessionStorage.getItem("stationBikeAvailable");
-
-
-
-
-                            // Bike available minus 1 by click on validate btn
                             buttonBooking.addEventListener("click", function () {
+
+                                sessionStorage.setItem("stationname", nameString);
+                                sessionStorage.setItem("stationaddress", addressString);
+
                                 if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
-                                    realAvailableBikes = station.available_bikes-1;
-                                    availableBikes.innerText = realAvailableBikes + " vélo(s) restant(s) disponible(s).";
-                                    sessionStorage.setItem("stationBikeAvailable", realAvailableBikes);
-                                } else {
-                                    realAvailableBikes = station.available_bikes;
+                                    newAvailableBikes = station.available_bikes-1;
+                                    availableBikes.innerText = newAvailableBikes + " vélo(s) mainenant disponible(s).";
+                                    sessionStorage.setItem("stationBikeAvailable", newAvailableBikes);
+                                }
+                                else {
+                                    newAvailableBikes = station.available_bikes;
                                 }
 
+                                newAvailableBikes = sessionStorage.getItem("stationBikeAvailable");
 
-                                if (realAvailableBikes < 1) {
-                                    availableBikes.innerText = "Aucun vélo de disponible à cette station.";
+
+                                if (newAvailableBikes < 1) {
+                                    availableBikes.innerText = "Aucun vélo n'est disponible à cette station.";
                                     buttonBooking.classList.add("hide");
-                                } else if (realAvailableBikes > 0) {
-                                    availableBikes.innerText = realAvailableBikes + " vélo(s) restant(s) disponible(s).";
+                                }
+                                else if (newAvailableBikes > 0) {
+                                    availableBikes.innerText = newAvailableBikes + " vélo(s) encore disponible(s).";
                                     buttonBooking.classList.remove("hide");
                                 }
-
-                                sessionStorage.setItem("stationname", nameTruncated);
-                                sessionStorage.setItem("stationaddress", addressTruncated);
                             });
-
-                            if (reservation.storedLastName !== "" && reservation.storedFirstName !== "")
-                            {
-                                document.getElementById("lastname").value = reservation.storedLastName;
-                                document.getElementById("firstname").value = reservation.storedFirstName;
-                            }
-
-
-
                         });
-
-
-
-
-
-
-
                     }
                 }
             });
