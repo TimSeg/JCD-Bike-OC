@@ -307,7 +307,7 @@ form>label{
     font-size: 1rem;
 }
 
-form>button {
+#validate {
     position: relative;
     top: 5px;
     font-size: 1.5rem;
@@ -316,12 +316,13 @@ form>button {
     border-radius: 5px;
 }
 
-#canvas{
+canvas{
+    display: flex;
     position: relative;
     top: -5px;
     margin: 0 auto;
-    background-color: whitesmoke;
-    border: 3px solid midnightblue;
+    border: 3px solid mediumvioletred;
+    background-color: antiquewhite;
 }
 
 .directive{

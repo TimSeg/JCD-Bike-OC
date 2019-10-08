@@ -128,18 +128,20 @@
 
             <form id="volet">
                 <label for="lastname">Votre nom: </label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" required>
 
                 <label for="firstname">Votre prénom: </label>
-                <input type="text" name="firstname" id="firstname">
+                <input type="text" name="firstname" id="firstname" required>
 
                 <p class="directive">Signez ici</p>
 
-                <canvas id="canvas"></canvas>
+                <canvas id="draw"></canvas>
 
                 <p class="directive">Entrez Nom + Prénom + Signature avant de valider</p>
 
-                <button type="button" id="validate">Valider votre réservation</button>
+
+                <input id="validate" type="button" value="Valider votre réservation" >
+
 
             </form>
 
@@ -180,6 +182,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
         async="" defer=""></script>
 <script src="js/bookingForm.js"></script>
+<script src="js/Canvas.js"></script>
 <script src="js/script.js"></script>
 
 </body>

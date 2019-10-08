@@ -76,16 +76,15 @@ class GoogleMap {
 
 
                             // New available bikes number : -1 on validation
-                            let newAvailableBikes = 0;
+                            let newAvailableBikes;
 
                             buttonBooking.addEventListener("click", function () {
 
                                 sessionStorage.setItem("stationname", nameString);
                                 sessionStorage.setItem("stationaddress", addressString);
 
-                                if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
+                                if (reservation.timeMin !== null) {
                                     newAvailableBikes = station.available_bikes-1;
-                                    availableBikes.innerText = newAvailableBikes + " vélo(s) mainenant disponible(s).";
                                     sessionStorage.setItem("stationBikeAvailable", newAvailableBikes);
                                 }
                                 else {
