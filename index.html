@@ -127,11 +127,13 @@
             <label for="button-check">Réserver/Retour</label>
 
             <form id="volet">
+
+
                 <label for="lastname">Votre nom: </label>
-                <input type="text" name="lastname" id="lastname" required>
+                <input type="text" name="lastname" id="lastname">
 
                 <label for="firstname">Votre prénom: </label>
-                <input type="text" name="firstname" id="firstname" required>
+                <input type="text" name="firstname" id="firstname">
 
                 <p class="directive">Signez ici</p>
 
@@ -140,8 +142,7 @@
                 <p class="directive">Entrez Nom + Prénom + Signature avant de valider</p>
 
 
-                <input id="validate" type="button" value="Valider votre réservation" >
-
+                <input id="validate" type="button" value="Valider votre réservation" onclick="checkforblanck()">
 
             </form>
 
@@ -181,7 +182,6 @@
 <script src="js/GoogleMap.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
         async="" defer=""></script>
-<script src="js/bookingForm.js"></script>
 <script src="js/Canvas.js"></script>
 <script src="js/script.js"></script>
 
