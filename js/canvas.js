@@ -5,7 +5,7 @@ var Canvas = function () {
 
     this.canvas = document.getElementById("draw");
     this.ctx = this.canvas.getContext("2d");
-    this.thickness = 3;
+
 
     // Canvas resolution
 
@@ -55,6 +55,9 @@ var Canvas = function () {
                 
                 this.mouseXFirst = this.mouseX;
                 this.mouseYFirst = this.mouseY;
+
+                // thickness (px) of the line
+                this.ctx.lineWidth = 5;
             }
         }.bind(this));
     }
