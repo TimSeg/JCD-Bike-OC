@@ -22,4 +22,6 @@ function initMap() {
 var canvas = new Canvas();
 canvas.initCanvas();
 
-//Set booking form
+//Set booking confirmation form
+
+

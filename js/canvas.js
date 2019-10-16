@@ -21,6 +21,7 @@ var Canvas = function () {
     this.initCanvas = function (){
         this.canvas.addEventListener("mousedown", function (e) {
             this.isDown = true;
+
             //set mouse position on 0 (x and y) on canvas
             this.mouseXFirst = e.pageX || e.clientX;
             this.mouseYFirst = e.pageY || e.clientY;
@@ -28,9 +29,11 @@ var Canvas = function () {
             this.mouseYFirst = Math.floor(this.mouseYFirst-this.canvas.getBoundingClientRect().y-window.scrollY);
         }.bind(this));
 
+        //stop draw when stop click
         this.canvas.addEventListener("mouseup", function () {
             this.isDown = false;
         }.bind(this));
+
 
         this.canvas.addEventListener("mousemove", function (e) {
             this.mouseX = e.pageX || e.clientX;
@@ -38,11 +41,12 @@ var Canvas = function () {
             this.mouseX = Math.floor(this.mouseX-this.canvas.getBoundingClientRect().x);
             this.mouseY = Math.floor(this.mouseY-this.canvas.getBoundingClientRect().y-window.scrollY);
 
-
             if(this.isDown) {
-                // Display pixel on click
+
+                // Display pixels on click - drawing
                 this.ctx.beginPath();
 
+                //drawing threads between points to make curves
                 this.ctx.moveTo(this.mouseXFirst, this.mouseYFirst);
                 this.ctx.lineTo(this.mouseX, this.mouseY);
 
@@ -56,12 +60,3 @@ var Canvas = function () {
     }
 };
 
-
-// Check for blanck fields in the form
-
-function checkforblanck(){
-    if((document.getElementById('lastname').value == "") || (document.getElementById('firstname').value == "")) {
-        alert('Entrez votre nom et prénom SVP');
-        return false;
-    }
-}
