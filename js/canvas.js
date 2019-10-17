@@ -57,9 +57,9 @@ var Canvas = function () {
                 this.mouseYFirst = this.mouseY;
 
                 // thickness (px) of the line
-                this.ctx.lineWidth = 5;
+                this.ctx.lineWidth = 3;
             }
         }.bind(this));
-    }
+    };
 };
 
