@@ -1,7 +1,8 @@
 "use strict";
 
 
-var Canvas = function () {
+class Canvas {
+    constructor() {
 
     this.canvas = document.getElementById("draw");
     this.ctx = this.canvas.getContext("2d");
@@ -17,6 +18,7 @@ var Canvas = function () {
     this.mouseY;
     this.mouseXFirst;
     this.mouseYFirst;
+
 
     this.initCanvas = function (){
         this.canvas.addEventListener("mousedown", function (e) {
@@ -62,4 +64,6 @@ var Canvas = function () {
         }.bind(this));
     };
 };
+
+}
 
