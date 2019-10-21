@@ -83,7 +83,7 @@ class GoogleMap {
                                 sessionStorage.setItem("stationname", nameString);
                                 sessionStorage.setItem("stationaddress", addressString);
 
-                                if (reservation.timeMin !== null) {
+                                if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
                                     newAvailableBikes = station.available_bikes-1;
                                     sessionStorage.setItem("stationBikeAvailable", newAvailableBikes);
                                 }
