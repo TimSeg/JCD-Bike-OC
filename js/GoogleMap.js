@@ -82,6 +82,9 @@ class GoogleMap {
 
                                 sessionStorage.setItem("stationname", nameString);
                                 sessionStorage.setItem("stationaddress", addressString);
+                                //
+                                var stationAddressConfirm = document.getElementById("stationConfirm");
+                                stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");
 
                                 if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
                                     newAvailableBikes = station.available_bikes-1;
@@ -102,6 +105,8 @@ class GoogleMap {
                                     availableBikes.innerText = newAvailableBikes + " vélo(s) encore disponible(s).";
                                     buttonBooking.classList.remove("hide");
                                 }
+
+
                             });
                         });
                     }
@@ -109,3 +114,4 @@ class GoogleMap {
             });
     }
 }
+
