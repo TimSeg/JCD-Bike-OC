@@ -25,6 +25,7 @@ canvas.initCanvas();
 
 //Set booking confirmation form
 
+
 var booked = new Booked();
 booked.initBooked();
 
