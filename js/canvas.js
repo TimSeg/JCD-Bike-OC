@@ -32,9 +32,7 @@ class Canvas {
         }.bind(this));
 
         //stop draw when stop click
-        this.canvas.addEventListener("mouseup", function () {
-            this.isDown = false;
-        }.bind(this));
+        this.canvas.addEventListener("mouseup", function () {this.isDown = false;}.bind(this));
 
 
         this.canvas.addEventListener("mousemove", function (e) {
@@ -63,7 +61,7 @@ class Canvas {
             }
         }.bind(this));
     };
-};
+}
 
 }
 
