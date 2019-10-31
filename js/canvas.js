@@ -4,23 +4,23 @@
 class Canvas {
     constructor() {
 
-    this.canvas = document.getElementById("draw");
-    this.ctx = this.canvas.getContext("2d");
+        this.canvas = document.getElementById("draw");
+        this.ctx = this.canvas.getContext("2d");
 
 
-    // Canvas resolution
+        // Canvas resolution
 
-    this.canvas.width = 280;
-    this.canvas.height = 130;
-    this.canvas.style.width = "280px";
-    this.canvas.style.height = "130px";
-    this.mouseX;
-    this.mouseY;
-    this.mouseXFirst;
-    this.mouseYFirst;
+        this.canvas.width = 280;
+        this.canvas.height = 130;
+        this.canvas.style.width = "280px";
+        this.canvas.style.height = "130px";
+        this.mouseX;
+        this.mouseY;
+        this.mouseXFirst;
+        this.mouseYFirst;
+    }
 
-
-    this.initCanvas = function (){
+    initCanvas (){
         this.canvas.addEventListener("mousedown", function (e) {
             this.isDown = true;
 
@@ -60,8 +60,8 @@ class Canvas {
                 this.ctx.lineWidth = 3;
             }
         }.bind(this));
-    };
-}
+    }
+
 
 }
 
