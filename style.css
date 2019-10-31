@@ -370,6 +370,9 @@ footer{
     font-size: 3rem;
 }
 
+#footerText{
+    font-size: 1.2rem;
+}
 
 
 /*------BREAKPOINTS------*/

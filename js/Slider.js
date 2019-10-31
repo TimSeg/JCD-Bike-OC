@@ -46,7 +46,7 @@ class Slider {
     }
 
 
-//laft and right arrows click controls
+//left and right arrows click controls
 
 
     nextSlide() {
@@ -97,6 +97,9 @@ class Slider {
 
                 break;
 
+
+
+                // no more alert when vertical down scroll is over 200px
             default:
                 if(window.scrollY <= 200) {
                     alert("Merci d'utiliser uniquement les touches fléchées <-/-> et Espace du clavier pour naviguer sur le diaporama");
