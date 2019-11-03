@@ -8,7 +8,6 @@ class GoogleMap {
         // Add coordonates for center map
 
         this.amiens = {lat: 49.894009, lng: 2.295838};
-
     }
 
     initMap() {
@@ -62,9 +61,7 @@ class GoogleMap {
 
                         marker.addListener("click", function () {
 
-                            document.getElementById("booking").style.display = "block";
-
-
+                            document.getElementById("booking").style.display="block";
 
                             const stationName = document.getElementById("stationName");
                             const stationAddress = document.getElementById("stationAddress");
@@ -75,14 +72,11 @@ class GoogleMap {
                             const nameString = `${station.name}`;
                             const addressString = `${station.address}`;
 
-
                             stationName.innerText = nameString;
                             stationAddress.innerText = addressString;
                             availableBikes.innerText = station.available_bikes;
                             bikeStands.innerText = station.available_bike_stands;
 
-                            document.getElementById("lastname").innerText = localStorage.getItem("lastname");
-                            document.getElementById("firstname").innerText = localStorage.getItem("firstname");
 
                             // New available bikes number : -1 on validation
                             let newAvailableBikes;
@@ -115,12 +109,12 @@ class GoogleMap {
                                     buttonBooking.classList.remove("hide");
                                 }
 
+
                             });
                         });
                     }
                 }
             });
     }
-
 }
 
