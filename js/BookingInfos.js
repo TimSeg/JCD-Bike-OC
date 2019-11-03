@@ -5,9 +5,10 @@
 
 
 // Check for blank fields in the form + display conclusion frame and remove the NoBooking message
+
 function checkforblank(){
     if((document.getElementById("lastname").value === "") || (document.getElementById("firstname").value === "")) {
-        alert("Entrez votre nom et prénom SVP");
+        alert("Choisissez une station puis entrez votre nom et prénom SVP");
         return false;
     }
     else{
@@ -56,6 +57,8 @@ class Booked{
             clearInterval(this.timer);
             this.setBookInfos();
             this.startTimer();
+            this.countDown();
+
 
 
         }.bind(this));
@@ -71,6 +74,7 @@ class Booked{
     countDown() {
         sessionStorage.setItem("timeMin",this.timeMin);
         sessionStorage.setItem("timeSec",this.timeSec);
+        this.setBookInfos();
         this.timeSec--;
         if (this.timeSec < 0) {
             this.timeSec = 59;
@@ -82,6 +86,9 @@ class Booked{
             alert("Temps écoulé, veuillez faire une autre réservation");
         }
     }
+
+
+
 
     // display infos from local and session storage
     setBookInfos() {

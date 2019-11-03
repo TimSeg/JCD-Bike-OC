@@ -251,7 +251,7 @@ img{
 /* Form */
 
 #booking{
-    display: block;
+    display: none;
     height: 400px;
     min-width: 70%;
     border: 2px solid black;
@@ -333,19 +333,17 @@ canvas{
 
 /* CONFIRMED RESERVATION PART */
 
-.hide {
-    display: none;
-}
+
 
 #noBooking{
     font-size: 2rem;
 }
 
 #bookingConfirmed{
+    display: none;
     position: relative;
     width: 80%;
     margin: 0 auto;
-    top: 5px;
     font-size: 1.5rem;
     color: white;
     background-color: dodgerblue;
