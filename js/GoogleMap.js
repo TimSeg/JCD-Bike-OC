@@ -8,12 +8,15 @@ class GoogleMap {
         // Add coordonates for center map
 
         this.amiens = {lat: 49.894009, lng: 2.295838};
+
+
     }
 
     initMap() {
         let gMap = new google.maps.Map(document.getElementById("map"), {
             zoom: 15,
             center: this.amiens
+
         });
 
         ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Amiens&apiKey=79fd38d925a7ea9a6962391cf653c7abcb7ac88f",
@@ -72,10 +75,19 @@ class GoogleMap {
                             const nameString = `${station.name}`;
                             const addressString = `${station.address}`;
 
+                            // Get personnal infos from previous rental to avoid re-typing
+                            var storedLastName = localStorage.getItem("lastname");
+                            var storedFirstName = localStorage.getItem("firstname");
+                            document.getElementById("lastname").value = storedLastName;
+                            document.getElementById("firstname").value = storedFirstName;
+
+                            // display infos about station
                             stationName.innerText = nameString;
                             stationAddress.innerText = addressString;
                             availableBikes.innerText = station.available_bikes;
                             bikeStands.innerText = station.available_bike_stands;
+
+
 
 
                             // New available bikes number : -1 on validation
@@ -85,6 +97,9 @@ class GoogleMap {
 
                                 sessionStorage.setItem("stationname", nameString);
                                 sessionStorage.setItem("stationaddress", addressString);
+
+
+
                                 //
                                 var stationAddressConfirm = document.getElementById("stationConfirm");
                                 stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");

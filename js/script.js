@@ -17,6 +17,7 @@ function initMap() {
   map.initMap();
 }
 
+
 //Set canvas
 
 var canvas = new Canvas();
