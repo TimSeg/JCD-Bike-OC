@@ -415,7 +415,7 @@ nav{
 .main-navigation a:hover,
 .main-navigation a:checked {
     border-top: 3px solid #5cacd2;
-    padding-top: 38px;
+    padding-top: 20px;
 }
 
 
