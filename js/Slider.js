@@ -67,12 +67,10 @@ class Slider {
     stopAuto() {
         if (this.stateStop === 0) {
             window.clearInterval(this.slideAutomation);
-            //this.stop.textContent = "Arrêter/Démarrer le diaporama";
             this.stateStop ++;
         }
         else  {
             this.slideAutomation = window.setInterval(this.nextSlide.bind(this), 5000);
-            //this.stop.textContent = "Arrêt du défilement";
             this.stateStop --;}
     }
 
