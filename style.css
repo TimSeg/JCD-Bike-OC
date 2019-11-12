@@ -311,6 +311,7 @@ form>label{
 }
 
 #validate {
+    display: none;
     position: relative;
     top: 5px;
     font-size: 1.5rem;
@@ -338,12 +339,9 @@ canvas{
 
 
 
-#noBooking{
-    font-size: 2rem;
-}
 
 #bookingConfirmed{
-    display: none;
+    display: block;
     position: relative;
     width: 80%;
     margin: 0 auto;

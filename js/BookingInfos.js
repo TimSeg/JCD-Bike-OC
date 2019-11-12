@@ -5,16 +5,8 @@
 
 
 // Check for blank fields in the form + display conclusion frame and remove the NoBooking message
-function checkforblank(){
-    if((document.getElementById("lastname").value === "") || (document.getElementById("firstname").value === "")) {
-        alert("Entrez votre nom et prénom SVP");
-        return false;
-    }
-    else{
-        document.getElementById("bookingConfirmed").style.display = "block";
-        document.getElementById("noBooking").style.display = "none";
-    }
-}
+
+
 
 
 // Display personal infos from the Form + station location
@@ -87,8 +79,8 @@ class Booked{
     // display infos from local and session storage
     setBookInfos() {
 
-        this.lastNameConfirm.innerText = localStorage.getItem("lastname");
-        this.firstNameConfirm.innerText = localStorage.getItem("firstname");
+        this.lastNameConfirm.innerText = localStorage.getItem("lastname")+"";
+        this.firstNameConfirm.innerText = localStorage.getItem("firstname")+"";
         this.minTimer.innerText = sessionStorage.getItem("timeMin");
         this.secTimer.innerText = sessionStorage.getItem("timeSec");
 
