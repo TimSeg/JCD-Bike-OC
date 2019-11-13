@@ -72,7 +72,7 @@ class Canvas {
     }
 
 
-    // Enabling the validate button
+    // Enabling the validate button only if there is lastname, firstname and signature
 
     enable() {
 

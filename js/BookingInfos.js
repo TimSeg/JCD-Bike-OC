@@ -4,7 +4,7 @@
 //document.getElementById("firstname").value = localStorage.getItem("firstname");
 
 
-// Check for blank fields in the form + display conclusion frame and remove the NoBooking message
+
 
 
 
@@ -19,6 +19,7 @@ class Booked{
         this.firstname = document.getElementById("firstname");
         this.lastNameConfirm = document.getElementById("lastNameConfirm");
         this.firstNameConfirm = document.getElementById("firstNameConfirm");
+        this.stationAddressConfirm = document.getElementById("stationConfirm");
 
         this.minTimer = document.getElementById("minTimer");
         this.secTimer = document.getElementById("secTimer");
@@ -27,15 +28,16 @@ class Booked{
         this.timeSec = sessionStorage.getItem("timeSec");
         this.timer = "";
 
-        this.timeMin = 20;
-        this.timeSec = 0;
-
     }
 
 
 
 
     initBooked  () {
+
+        this.setBookInfos();
+        this.startTimer();
+
         this.buttonBooking.addEventListener("click", function () {
 
             var lastName = document.getElementById("lastname").value;
@@ -43,6 +45,9 @@ class Booked{
 
             localStorage.setItem("lastname", lastName);
             localStorage.setItem("firstname", firstName);
+
+            this.timeMin = 20;
+            this.timeSec = 0;
 
 
             clearInterval(this.timer);
@@ -79,10 +84,11 @@ class Booked{
     // display infos from local and session storage
     setBookInfos() {
 
-        this.lastNameConfirm.innerText = localStorage.getItem("lastname")+"";
-        this.firstNameConfirm.innerText = localStorage.getItem("firstname")+"";
-        this.minTimer.innerText = sessionStorage.getItem("timeMin");
-        this.secTimer.innerText = sessionStorage.getItem("timeSec");
+        this.lastNameConfirm.innerText = localStorage.getItem("lastname");
+        this.firstNameConfirm.innerText = localStorage.getItem("firstname")+" a réservé un vélo à cette adresse :";
+        this.stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");
+        this.minTimer.innerText = sessionStorage.getItem("timeMin")+" minute(s) et ";
+        this.secTimer.innerText = sessionStorage.getItem("timeSec")+" seconde(s) restante(s) pour le récupérer";
 
     }
 

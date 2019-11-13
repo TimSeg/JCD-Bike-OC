@@ -101,8 +101,8 @@ class GoogleMap {
 
 
                                 //
-                                var stationAddressConfirm = document.getElementById("stationConfirm");
-                                stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");
+                               // var stationAddressConfirm = document.getElementById("stationConfirm");
+                               // stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");
 
                                 if (reservation.timeMin !== null && reservation.timeSec !== isNaN) {
                                     newAvailableBikes = station.available_bikes-1;
