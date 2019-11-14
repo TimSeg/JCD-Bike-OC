@@ -5,10 +5,6 @@
 
 
 
-
-
-
-
 // Display personal infos from the Form + station location
 
 
@@ -31,12 +27,19 @@ class Booked{
     }
 
 
-
-
     initBooked  () {
 
         this.setBookInfos();
         this.startTimer();
+
+        if ( ((this.timeMin === "0") && (this.timeSec === "0")) || (this.timeMin === "null") ){
+            this.lastNameConfirm.style.display = "none";
+            this.firstNameConfirm.style.display = "none";
+            this.stationAddressConfirm.style.display = "none";
+            this.minTimer.style.display = "none";
+            this.secTimer.style.display = "none";
+        }
+
 
         this.buttonBooking.addEventListener("click", function () {
 
@@ -45,6 +48,12 @@ class Booked{
 
             localStorage.setItem("lastname", lastName);
             localStorage.setItem("firstname", firstName);
+
+            this.lastNameConfirm.style.display = "block";
+            this.firstNameConfirm.style.display = "block";
+            this.stationAddressConfirm.style.display = "block";
+            this.minTimer.style.display = "block";
+            this.secTimer.style.display = "block";
 
             this.timeMin = 20;
             this.timeSec = 0;
@@ -77,9 +86,10 @@ class Booked{
         if (this.timeMin < 0) {
 
             clearInterval(this.timer);
-            alert("Temps écoulé, veuillez faire une autre réservation");
+
         }
     }
+
 
     // display infos from local and session storage
     setBookInfos() {
@@ -91,9 +101,6 @@ class Booked{
         this.secTimer.innerText = sessionStorage.getItem("timeSec")+" seconde(s) restante(s) pour le récupérer";
 
     }
-
-
-
 }
 
 

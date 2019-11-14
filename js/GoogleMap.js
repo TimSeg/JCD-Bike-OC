@@ -3,12 +3,28 @@
 
 class GoogleMap {
 
+
+    ajaxGet(url, callback) {
+        var req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.addEventListener("load", function () {
+            if (req.status >= 200 && req.status < 400) {
+                callback(req.responseText);
+            } else {
+                window.alert(req.status + " " + req.statusText + " " + url);
+            }
+        });
+        req.addEventListener("error", function () {
+            window.alert("Erreur réseau avec l'URL " + url);
+        });
+        req.send(null);
+    }
+
     constructor() {
 
         // Add coordonates for center map
 
         this.amiens = {lat: 49.894009, lng: 2.295838};
-
 
     }
 
@@ -19,7 +35,7 @@ class GoogleMap {
 
         });
 
-        ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Amiens&apiKey=79fd38d925a7ea9a6962391cf653c7abcb7ac88f",
+        this.ajaxGet("https://api.jcdecaux.com/vls/v1/stations?contract=Amiens&apiKey=79fd38d925a7ea9a6962391cf653c7abcb7ac88f",
             function (reponse) {
 
                 let stations = JSON.parse(reponse);

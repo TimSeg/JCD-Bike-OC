@@ -351,6 +351,10 @@ canvas{
     border-radius: 5px;
 }
 
+#bookingConfirmed span{
+    display: block;
+}
+
 footer{
     display: flex;
     justify-content: space-around;
