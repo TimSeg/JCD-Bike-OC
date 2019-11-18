@@ -23,7 +23,7 @@ class Canvas {
     }
 
     initCanvas() {
-        this.canvas.addEventListener("mousedown", function (e) {
+        this.canvas.addEventListener("mousedown" || "touchstart", function (e) {
             this.isDown = true;
 
 
@@ -35,12 +35,12 @@ class Canvas {
         }.bind(this));
 
         //stop draw when stop click
-        this.canvas.addEventListener("mouseup", function () {
+        this.canvas.addEventListener("mouseup" || "touchend", function () {
             this.isDown = false;
         }.bind(this));
 
 
-        this.canvas.addEventListener("mousemove", function (e) {
+        this.canvas.addEventListener("mousemove" || "touchmove", function (e) {
             this.mouseX = e.pageX || e.clientX;
             this.mouseY = e.pageY || e.clientY;
             this.mouseX = Math.floor(this.mouseX - this.canvas.getBoundingClientRect().x);

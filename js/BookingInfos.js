@@ -13,8 +13,8 @@ class Booked{
         this.buttonBooking = document.getElementById("validate");
         this.lastname = document.getElementById("lastname");
         this.firstname = document.getElementById("firstname");
-        this.lastNameConfirm = document.getElementById("lastNameConfirm");
-        this.firstNameConfirm = document.getElementById("firstNameConfirm");
+        this.nameConfirm = document.getElementById("nameConfirm");
+        this.bookingText = document.getElementById("bookingText");
         this.stationAddressConfirm = document.getElementById("stationConfirm");
 
         this.minTimer = document.getElementById("minTimer");
@@ -33,8 +33,8 @@ class Booked{
         this.startTimer();
 
         if ( ((this.timeMin === "0") && (this.timeSec === "0")) || (this.timeMin === "null") ){
-            this.lastNameConfirm.style.display = "none";
-            this.firstNameConfirm.style.display = "none";
+            this.nameConfirm.style.display = "none";
+            this.bookingText.style.display = "none";
             this.stationAddressConfirm.style.display = "none";
             this.minTimer.style.display = "none";
             this.secTimer.style.display = "none";
@@ -49,8 +49,8 @@ class Booked{
             localStorage.setItem("lastname", lastName);
             localStorage.setItem("firstname", firstName);
 
-            this.lastNameConfirm.style.display = "block";
-            this.firstNameConfirm.style.display = "block";
+            this.nameConfirm.style.display = "block";
+            this.bookingText.style.display = "block";
             this.stationAddressConfirm.style.display = "block";
             this.minTimer.style.display = "block";
             this.secTimer.style.display = "block";
@@ -94,8 +94,8 @@ class Booked{
     // display infos from local and session storage
     setBookInfos() {
 
-        this.lastNameConfirm.innerText = localStorage.getItem("lastname");
-        this.firstNameConfirm.innerText = localStorage.getItem("firstname")+" a réservé un vélo à cette adresse :";
+        this.nameConfirm.innerText = localStorage.getItem("lastname") +" "+ localStorage.getItem("firstname");
+        this.bookingText.innerText =  "a réservé un vélo à cette adresse :";
         this.stationAddressConfirm.innerText = sessionStorage.getItem("stationaddress");
         this.minTimer.innerText = sessionStorage.getItem("timeMin")+" minute(s) et ";
         this.secTimer.innerText = sessionStorage.getItem("timeSec")+" seconde(s) restante(s) pour le récupérer";
