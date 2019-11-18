@@ -23,7 +23,11 @@ class Canvas {
     }
 
     initCanvas() {
-        this.canvas.addEventListener("mousedown" || "touchstart", function (e) {
+
+
+
+
+        this.canvas.addEventListener("mousedown", function (e) {
             this.isDown = true;
 
 
@@ -35,12 +39,12 @@ class Canvas {
         }.bind(this));
 
         //stop draw when stop click
-        this.canvas.addEventListener("mouseup" || "touchend", function () {
+        this.canvas.addEventListener("mouseup", function () {
             this.isDown = false;
         }.bind(this));
 
 
-        this.canvas.addEventListener("mousemove" || "touchmove", function (e) {
+        this.canvas.addEventListener("mousemove", function (e) {
             this.mouseX = e.pageX || e.clientX;
             this.mouseY = e.pageY || e.clientY;
             this.mouseX = Math.floor(this.mouseX - this.canvas.getBoundingClientRect().x);
@@ -69,6 +73,47 @@ class Canvas {
 
             }
         }.bind(this));
+
+
+
+// drawing on mobile screen by touch
+
+        this.canvas.addEventListener("touchstart", function (event) {
+            touchdown(event)
+        });
+
+
+        // Function for draw
+
+        function touchdown(event) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(event.offsetX, event.offsetY);
+            this.canvas.addEventListener("touchmove", paint);
+        }
+
+        function paint(event) {
+
+            this.ctx.lineTo(event.offsetX, event.offsetY);
+            this.ctx.stroke();
+
+        }
+
+
+        // Function for display draw
+
+
+
+        this.canvas.addEventListener("touchup", function (event) {
+            touchup(event)
+        });
+
+
+        // Function for stop draw
+
+        function touchup() {
+            this.canvas.removeEventListener("touchmove", paint);
+        }
+
     }
 
 

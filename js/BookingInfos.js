@@ -32,7 +32,7 @@ class Booked{
         this.setBookInfos();
         this.startTimer();
 
-        if ( ((this.timeMin === "0") && (this.timeSec === "0")) || (this.timeMin === "null") ){
+        if ( (this.timeMin === null) || ((this.timeMin === "0") && (this.timeSec === "0")) ){
             this.nameConfirm.style.display = "none";
             this.bookingText.style.display = "none";
             this.stationAddressConfirm.style.display = "none";
