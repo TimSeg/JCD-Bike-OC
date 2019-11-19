@@ -1,6 +1,5 @@
 "use strict";
 
-
 class Canvas {
     constructor() {
 
@@ -20,11 +19,10 @@ class Canvas {
         this.mouseY;
         this.mouseXFirst;
         this.mouseYFirst;
+
     }
 
     initCanvas() {
-
-
 
 
         this.canvas.addEventListener("mousedown", function (e) {
@@ -75,44 +73,54 @@ class Canvas {
         }.bind(this));
 
 
+        // drawing on mobile screen by touch
 
-// drawing on mobile screen by touch
-
-        this.canvas.addEventListener("touchstart", function (event) {
-            touchdown(event)
-        });
+        this.canvas.addEventListener("touchstart", function (e) {
+            this.isDown = true;
 
 
-        // Function for draw
+            //set mouse position on 0 (x and y) on canvas
+            this.mouseXFirst = e.pageX || e.clientX;
+            this.mouseYFirst = e.pageY || e.clientY;
+            this.mouseXFirst = Math.floor(this.mouseXFirst - this.canvas.getBoundingClientRect().x);
+            this.mouseYFirst = Math.floor(this.mouseYFirst - this.canvas.getBoundingClientRect().y - window.scrollY);
+        }.bind(this));
 
-        function touchdown(event) {
-            this.ctx.beginPath();
-            this.ctx.moveTo(event.offsetX, event.offsetY);
-            this.canvas.addEventListener("touchmove", paint);
-        }
-
-        function paint(event) {
-
-            this.ctx.lineTo(event.offsetX, event.offsetY);
-            this.ctx.stroke();
-
-        }
+        //stop draw when stop click
+        this.canvas.addEventListener("touchend", function () {
+            this.isDown = false;
+        }.bind(this));
 
 
-        // Function for display draw
+        this.canvas.addEventListener("touchmove", function (e) {
+            this.mouseX = e.pageX || e.clientX;
+            this.mouseY = e.pageY || e.clientY;
+            this.mouseX = Math.floor(this.mouseX - this.canvas.getBoundingClientRect().x);
+            this.mouseY = Math.floor(this.mouseY - this.canvas.getBoundingClientRect().y - window.scrollY);
+
+            if (this.isDown) {
+
+                // Display pixels on click - drawing
+                this.ctx.beginPath();
+
+                //drawing threads between points to make curves
+                this.ctx.moveTo(this.mouseXFirst, this.mouseYFirst);
+                this.ctx.lineTo(this.mouseX, this.mouseY);
+
+                this.ctx.stroke();
+                this.ctx.closePath();
+
+                this.mouseXFirst = this.mouseX;
+                this.mouseYFirst = this.mouseY;
+
+                // thickness (px) of the line
+                this.ctx.lineWidth = 3;
+
+                this.enable();
 
 
-
-        this.canvas.addEventListener("touchup", function (event) {
-            touchup(event)
-        });
-
-
-        // Function for stop draw
-
-        function touchup() {
-            this.canvas.removeEventListener("touchmove", paint);
-        }
+            }
+        }.bind(this));
 
     }
 
