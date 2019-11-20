@@ -19,6 +19,11 @@ class Canvas {
         this.mouseY;
         this.mouseXFirst;
         this.mouseYFirst;
+        this.touchX;
+        this.touchY;
+        this.touchXFirst;
+        this.touchYFirst;
+
 
     }
 
@@ -80,10 +85,10 @@ class Canvas {
 
 
             //set curser position on 0 (x and y) on canvas
-            this.mouseXFirst = e.pageX || e.clientX;
-            this.mouseYFirst = e.pageY || e.clientY;
-            this.mouseXFirst = Math.floor(this.mouseXFirst - this.canvas.getBoundingClientRect().x);
-            this.mouseYFirst = Math.floor(this.mouseYFirst - this.canvas.getBoundingClientRect().y - window.scrollY);
+            this.touchXFirst = e.pageX || e.clientX;
+            this.touchYFirst = e.pageY || e.clientY;
+            this.touchXFirst = Math.floor(this.touchXFirst - this.canvas.getBoundingClientRect().x);
+            this.touchYFirst = Math.floor(this.touchYFirst - this.canvas.getBoundingClientRect().y - window.scrollY);
         }.bind(this));
 
         //stop draw when stop touch
@@ -93,10 +98,10 @@ class Canvas {
 
         // draw when touch while moving
         this.canvas.addEventListener("touchmove", function (e) {
-            this.mouseX = e.pageX || e.clientX;
-            this.mouseY = e.pageY || e.clientY;
-            this.mouseX = Math.floor(this.mouseX - this.canvas.getBoundingClientRect().x);
-            this.mouseY = Math.floor(this.mouseY - this.canvas.getBoundingClientRect().y - window.scrollY);
+            this.touchX = e.pageX || e.clientX;
+            this.touchY = e.pageY || e.clientY;
+            this.touchX = Math.floor(this.touchX - this.canvas.getBoundingClientRect().x);
+            this.touchY = Math.floor(this.touchY - this.canvas.getBoundingClientRect().y - window.scrollY);
 
             if (this.isDown) {
 
@@ -104,18 +109,18 @@ class Canvas {
                 this.ctx.beginPath();
 
                 //drawing threads between points to make curves
-                this.ctx.moveTo(this.mouseXFirst, this.mouseYFirst);
-                this.ctx.lineTo(this.mouseX, this.mouseY);
+                this.ctx.moveTo(this.touchXFirst, this.touchYFirst);
+                this.ctx.lineTo(this.touchX, this.touchY);
 
                 this.ctx.stroke();
                 this.ctx.closePath();
 
-                this.mouseXFirst = this.mouseX;
-                this.mouseYFirst = this.mouseY;
+                this.touchXFirst = this.touchX;
+                this.touchYFirst = this.touchY;
 
                 // thickness (px) of the line
                 this.ctx.lineWidth = 3;
-                
+
                 this.enable();
 
 
