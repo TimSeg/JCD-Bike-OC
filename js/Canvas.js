@@ -79,19 +79,19 @@ class Canvas {
             this.isDown = true;
 
 
-            //set mouse position on 0 (x and y) on canvas
+            //set curser position on 0 (x and y) on canvas
             this.mouseXFirst = e.pageX || e.clientX;
             this.mouseYFirst = e.pageY || e.clientY;
             this.mouseXFirst = Math.floor(this.mouseXFirst - this.canvas.getBoundingClientRect().x);
             this.mouseYFirst = Math.floor(this.mouseYFirst - this.canvas.getBoundingClientRect().y - window.scrollY);
         }.bind(this));
 
-        //stop draw when stop click
+        //stop draw when stop touch
         this.canvas.addEventListener("touchend", function () {
             this.isDown = false;
         }.bind(this));
 
-
+        // draw when touch while moving
         this.canvas.addEventListener("touchmove", function (e) {
             this.mouseX = e.pageX || e.clientX;
             this.mouseY = e.pageY || e.clientY;
@@ -100,7 +100,7 @@ class Canvas {
 
             if (this.isDown) {
 
-                // Display pixels on click - drawing
+                // Display pixels on touch- drawing
                 this.ctx.beginPath();
 
                 //drawing threads between points to make curves
@@ -115,7 +115,7 @@ class Canvas {
 
                 // thickness (px) of the line
                 this.ctx.lineWidth = 3;
-
+                
                 this.enable();
 
 
